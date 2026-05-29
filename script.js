@@ -33,7 +33,7 @@ function createGrid(numSquares) {
             const newDiv = document.createElement("div");
             newDiv.style = `width: ${squareWidth}px;`;
             newDiv.addEventListener("mouseenter", () => {
-                newDiv.style.backgroundColor += getShadeColor();
+                newDiv.style.backgroundColor = getShadeColor();
             })
             container.appendChild(newDiv);
         }
