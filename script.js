@@ -3,7 +3,9 @@ const setColorModeBtn = document.querySelector("h2 button.set-color-mode");
 const container = document.querySelector(".container");
 const containerWidth = container.offsetWidth;
 const containerHeight = container.offsetHeight;
+
 const DEFAULT_NUM_SQUARES = 16;
+const DEFAULT_SINGLE_COLOR = "rgb(0, 0, 255)";
 
 function getNumSquares() {
     let num = null;
@@ -32,8 +34,8 @@ function createGrid(numSquares) {
         for (let j = 0; j < numSquares; j++) {
             const newDiv = document.createElement("div");
             newDiv.style = `width: ${squareWidth}px;`;
-            newDiv.addEventListener("mouseenter", () => {
-                newDiv.style.backgroundColor = getShadeColor();
+            newDiv.addEventListener("mouseenter", (e) => {
+                shadeSquare(e);
             })
             container.appendChild(newDiv);
         }
@@ -64,13 +66,22 @@ function getRandomColor() {
     return colorString;
 }
 
-function getShadeColor() {
+function shadeSquare(event) {
+    const currSquare = event.target;
     const colorMode = setColorModeBtn.textContent;
 
     if (colorMode === "Single color") {
-        return "blue";
+        const opacity = currSquare.style.opacity;
+        const bgColor = currSquare.style.backgroundColor;
+
+        if (opacity && bgColor === DEFAULT_SINGLE_COLOR) {
+            currSquare.style.opacity = +opacity + 0.1;
+        } else {
+            currSquare.style.backgroundColor = DEFAULT_SINGLE_COLOR;
+            currSquare.style.opacity = 0.1;
+        }
     } else {
-        return getRandomColor();
+        currSquare.style.backgroundColor = getRandomColor();
     }
 }
 
