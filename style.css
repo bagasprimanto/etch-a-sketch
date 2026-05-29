@@ -21,7 +21,14 @@ h3 {
 }
 
 .container {
-    border: 2px solid black;
-    width: 360px;
-    height: 360px;
+    border: 1px solid black;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.container div {
+    flex: 1 0 auto;
 }
