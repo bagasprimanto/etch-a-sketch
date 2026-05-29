@@ -21,7 +21,10 @@ function createGrid() {
     for (let i = 0; i < numSquares; i++) {
         for (let j = 0; j < numSquares; j++) {
             const newDiv = document.createElement("div");
-            newDiv.style = `width: ${squareWidth}px; border: 0.5px solid red; background: white;`;
+            newDiv.style = `width: ${squareWidth}px;`;
+            newDiv.addEventListener("mouseenter", () => {
+                newDiv.classList.add("hovered");
+            })
             container.appendChild(newDiv);
         }
     }
