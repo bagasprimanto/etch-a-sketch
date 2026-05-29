@@ -2,7 +2,6 @@ const setNumSquaresBtn = document.querySelector("h2 button.set-num-boxes");
 const setColorModeBtn = document.querySelector("h2 button.set-color-mode");
 const container = document.querySelector(".container");
 const containerWidth = container.offsetWidth;
-const containerHeight = container.offsetHeight;
 
 const DEFAULT_NUM_SQUARES = 16;
 const DEFAULT_SINGLE_COLOR = "rgb(0, 0, 255)";
@@ -28,7 +27,6 @@ function createGrid(numSquares) {
     emptyGrid();
 
     const squareWidth = Math.floor(containerWidth / numSquares) - 1;
-    const squareHeight = Math.floor(containerHeight / numSquares) - 1;
 
     for (let i = 0; i < numSquares; i++) {
         for (let j = 0; j < numSquares; j++) {
