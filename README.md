@@ -1,17 +1,17 @@
-# The Rock Paper Scissors Game!
+# The Etch-a-Sketch project!
 
-This is the repo for the Etch-a-sketch game!
+This is the repo for the Etch-a-sketch project!
 
 ## Learning Outcomes
 
 Through this project, I have learned:
 * Using Javascript to manipulate the DOM
 * Used Git branching to develop features individually
-* Using Javascript to dynamically style element
+* Using Javascript to dynamically style elements
 
 ## Link to Live Project
 
-TBD
+https://bagasprimanto.github.io/etch-a-sketch/
 
 ## How to use:
 You can directly hover over the large grid square and see what happens!
