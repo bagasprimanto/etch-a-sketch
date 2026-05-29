@@ -1,19 +1,28 @@
+const setNumSquaresBtn = document.querySelector("h2 button");
 const container = document.querySelector(".container");
 const containerWidth = container.offsetWidth;
 const containerHeight = container.offsetHeight;
+const DEFAULT_NUM_SQUARES = 16;
 
-function getNumBoxes() {
+function getNumSquares() {
     let num = null;
 
-    while (!num) {
-        num = prompt("Input the number of boxes");
+    while (!num || num > 100) {
+        num = prompt("Input the number of squares");
     }
 
     return num;
 }
 
-function createGrid() {
-    const numSquares = 16;
+function emptyGrid() {
+    const divs = document.querySelectorAll(".container div");
+
+    divs.forEach((div) => div.remove());
+}
+
+function createGrid(numSquares) {
+    //Empties the grid first
+    emptyGrid();
 
     const squareWidth = Math.floor(containerWidth / numSquares) - 1;
     const squareHeight = Math.floor(containerHeight / numSquares) - 1;
@@ -30,4 +39,8 @@ function createGrid() {
     }
 }
 
-createGrid();
+setNumSquaresBtn.addEventListener("click", () => {
+    createGrid(getNumSquares());
+});
+
+createGrid(DEFAULT_NUM_SQUARES);
